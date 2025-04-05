@@ -1,27 +1,61 @@
 {
   "include": [
-    "**/*",
+    "env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
     "**/.server/**/*",
     "**/.client/**/*",
-    ".react-router/types/**/*"
+    ".react-router/types/**/*",
+    ".storybook/**/*",
   ],
   "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ES2022"],
-    "types": ["node", "vite/client"],
-    "target": "ES2022",
-    "module": "ES2022",
-    "moduleResolution": "bundler",
-    "jsx": "react-jsx",
-    "rootDirs": [".", "./.react-router/types"],
-    "baseUrl": ".",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ES2023"
+    ],
+    "types": [
+      "node",
+      "vite/client"
+    ],
+    "rootDirs": [
+      ".",
+      "./.react-router/types"
+    ],
+    "plugins": [
+      {
+        "name": "@react-router/dev"
+      }
+    ],
     "paths": {
-      "~/*": ["./app/*"]
+      "~/*": [
+        "./*"
+      ],
+      "#/*": [
+        "./app/*"
+      ]
     },
+    "isolatedModules": true,
+    "downlevelIteration": true,
     "esModuleInterop": true,
     "verbatimModuleSyntax": true,
-    "noEmit": true,
+    "moduleDetection": "force",
+    "incremental": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
+    "target": "ES2023",
+    "strict": true,
+    "checkJs": true,
+    "allowJs": true,
     "skipLibCheck": true,
-    "strict": true
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": true,
+    "noUncheckedSideEffectImports": true,
+    "noEmit": true
   }
 }
